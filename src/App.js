@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import AddPost from "./Components/AddPost";
+import PostList from "./Components/PostList";
+import Filter from "./Components/Filter";
 
 function App() {
+  const [filter, setFilter] = useState("All");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 style={{ color: "#ff347f" }}>
+        <img
+          width="50"
+          height="50"
+          src="https://image.flaticon.com/icons/png/512/4470/4470931.png"
+          alt="add posts"
+        />
+        TODO APP
+      </h1>
+      <AddPost />
+      <Filter setFilter={setFilter} filter={filter} />
+      <PostList filter={filter} />
     </div>
   );
 }
